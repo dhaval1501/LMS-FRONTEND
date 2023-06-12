@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>{{name}} Book Form</h1>
+<div mat-dialog-content>
+   <form [formGroup]="bookForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Book Name</mat-label>
+        <input formControlName="name" matInput placeholder="Name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Author</mat-label>
+        <input formControlName="author" matInput placeholder="Author Name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Available Copies</mat-label>
+        <input formControlName="availableQuantity" matInput type="number" placeholder="Available">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Total Copies</mat-label>
+        <input formControlName="totalQuantity" matInput type="number" placeholder="Total">
+      </mat-form-field>
+   </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+<button mat-raised-button color="warn" style="margin-right: 8px; margin-bottom: 5px;" mat-dialog-close>Close</button> 
+<button style="margin-right: 8px; margin-bottom: 5px;" mat-raised-button color="primary" (click)="addBook()">{{actionBtn}}</button>
+<!-- <p-button  (onClick)="addBook()" label="Secondary" styleClass="p-button-secondary p-button-sm"></p-button> -->
+</div>

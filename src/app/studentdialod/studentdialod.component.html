@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{name}} Student Form</h1>
+<div mat-dialog-content>
+   <form [formGroup]="studentForm">
+    <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstName" matInput placeholder=" First Name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input formControlName="lastName" matInput placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input formControlName="address" matInput  placeholder="Address">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Contect Number</mat-label>
+        <input formControlName="number" matInput type="number" placeholder="Contect Number">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Email">
+      </mat-form-field>
+   </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+<button mat-raised-button color="warn" style="margin-right: 8px; margin-bottom: 5px;" mat-dialog-close>Close</button> 
+<button style="margin-right: 8px; margin-bottom: 5px;" mat-raised-button color="primary" (click)="addStudent()">{{actionBtn}}</button>
+<!-- <p-button  (onClick)="addBook()" label="Secondary" styleClass="p-button-secondary p-button-sm"></p-button> -->
+</div>

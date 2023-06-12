@@ -1,0 +1,118 @@
+<div>
+
+  <div class="contaier-fuied">
+    <div class="row">
+      <div class="col-8">
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder #input />
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <div class="pt-4 pl-2" mat-dialog-action [align]="'end'">
+          <button mat-raised-button (click)="openDialog()">Add Student</button>
+        </div>
+      </div>
+    </div>
+
+  <!-- <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder #input />
+  </mat-form-field> -->
+  <!-- <div class="mat-elevation-z8"> -->
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Index</th>
+        <td mat-cell *matCellDef="let element; let i = index;">{{ (i+1) +(paginator.pageIndex * paginator.pageSize)}}</td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+        <td mat-cell *matCellDef="let row">{{ row.address }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Contect Number
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.number }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="editStudent(row)" color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="deleteStudent(row.id)" mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+<!-- </div> -->
+
+ <!-- </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Contact Number</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let student of students | paginate : { itemsPerPage: 2, currentPage: p }">
+        <td><span>{{student.id}}</span></td>
+        <td><span>{{student.firstName}}</span></td>
+        <td><span>{{student.lastName}}</span></td>
+        <td><span>{{student.address}}</span></td>
+        <td><span>{{student.number}}</span></td>
+        <td><span>{{student.email}}</span></td>
+      </tr>
+      </tbody>
+    </table> -->
+
+<!-- <div>
+    <pagination-controls (pageChange)="p = $event" class="float-right">
+    </pagination-controls>
+  </div> -->
+</div>
